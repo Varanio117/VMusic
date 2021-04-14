@@ -5,7 +5,7 @@ $username = "";
 $email    = "";
 $errors = array(); 
 
-$db = mysqli_connect('localhost', 'root', '', 'registration');
+$db = mysqli_connect('localhost', 'root', '', 'logreg');
 
 // REGISTRO
 if (isset($_POST['reg_user'])) {
@@ -46,7 +46,7 @@ if (isset($_POST['reg_user'])) {
   			  VALUES('$username', '$email', '$password')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
-  	$_SESSION['success'] = "You are now logged in";
+  	$_SESSION['success'] = "Inicio de sesión correcto";
   	header('location: index.php');
   }
 }
@@ -55,10 +55,10 @@ if (isset($_POST['login_user'])) {
     $password = mysqli_real_escape_string($db, $_POST['password']);
   
     if (empty($username)) {
-        array_push($errors, "Username is required");
+        array_push($errors, "Se requiere un nombre de usuario");
     }
     if (empty($password)) {
-        array_push($errors, "Password is required");
+        array_push($errors, "Se requiere contraseña");
     }
   
     if (count($errors) == 0) {
@@ -67,10 +67,10 @@ if (isset($_POST['login_user'])) {
         $results = mysqli_query($db, $query);
         if (mysqli_num_rows($results) == 1) {
           $_SESSION['username'] = $username;
-          $_SESSION['success'] = "You are now logged in";
+          $_SESSION['success'] = "Inicio de sesión correcto";
           header('location: index.php');
         }else {
-            array_push($errors, "Wrong username/password combination");
+            array_push($errors, "Nombre de usuario o contraseña no válidos");
         }
     }
   }
