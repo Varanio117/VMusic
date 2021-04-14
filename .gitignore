@@ -1,3 +1,6 @@
 .vscode/
+.env
 music/
 images/
+php/
+js/

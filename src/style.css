@@ -1,0 +1,119 @@
+html { 
+  background: url(https://cdn.pixabay.com/photo/2015/03/26/09/58/headphones-690685_960_720.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+}
+body {
+  font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+  color:white;
+  font-size:12px;
+  padding:50px;
+}
+header{
+  text-align: center;
+  font-family:initial;
+  position: relative;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 50px;
+  color: #fff;
+  text-shadow: 5px 5px 20px #000;
+  
+}
+
+form, .content {
+  width: 30%;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #191919;
+  background: rgba(0,0,0,0.9); 
+  overflow:hidden;
+  position:relative;
+  border-radius:5%;
+}
+h1 {
+  font-size:20px;
+  text-align:center;  
+}
+* { box-sizing: border-box; }
+.input-group {
+  padding:10px; 
+  border-top:1px solid #19191a;
+}
+.input-group label {
+  display: block;
+  text-align: left;
+  margin: 3px;
+  color:#888;
+  display:block;
+  padding-bottom:5px;
+}
+.input-group input {
+  height: 30px;
+  width: 93%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  background:rgba(255,255,255,0.1);
+}
+.btn {
+  padding:5px 20px;
+  border:1px solid rgba(0,0,0,0.4);
+  text-shadow:0 -1px 0 rgba(0,0,0,0.4);
+  border-radius:8px;
+  background: rgba(250,0,0,0.8);
+  color:white;
+  float:right;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:13px;
+}
+.error {
+  width: 92%; 
+  margin: 0px auto; 
+  padding: 10px; 
+  border: 1px solid #a94442; 
+  color: #a94442; 
+  background: #f2dede; 
+  border-radius: 5px; 
+  text-align: left;
+}
+.success {
+  color: #3c763d; 
+  background: #dff0d8; 
+  border: 1px solid #3c763d;
+  margin-bottom: 20px;
+}
+
+.remember{
+ color:white;
+ display:inline-block;
+ margin:20px;
+}
+
+input[type=checkbox] {
+ 
+ display:inline-block;
+ vertical-align:top;
+ 
+}
+.login {
+  padding:0 20px 20px 20px; 
+}
+
+.login:after {
+  clear:both;
+ display:table;
+ content:"";
+}
+
+.login span {
+ display:block;
+ float:left;
+ color: rgba(250,0,0,0.9);
+ padding-top:8px;
+}
