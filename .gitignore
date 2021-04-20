@@ -2,5 +2,5 @@
 .env
 music/
 images/
-php/
-js/
+src/home/js
+
