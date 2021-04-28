@@ -10,7 +10,7 @@ $errors = array();
 
 define('DB_HOST','localhost');
 define('DB_USER','root');
-define('DB_PASS' ,'mostacito');
+define('DB_PASS' ,'');
 define('DB_NAME', 'dbusers');
 
 $db = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
@@ -110,9 +110,9 @@ if (isset($_POST['login_user'])) {
       $mail->Port       = 587;
       $mail->SMTPSecure = 'tls';
       $mail->SMTPAuth   = true;
-      $mail->Username   = "vmusic478@gmail.com";
-      $mail->Password   = "Varanio117";
-      $mail->SetFrom('vmusic478@gmail.com', 'VMusic');
+      $mail->Username   = "*****@gmail.com";
+      $mail->Password   = "*****";
+      $mail->SetFrom('*****@gmail.com', 'VMusic');
       $mail->AddAddress($email, $username);
       $mail­->CharSet = "UTF-­8";
       $mail­->Encoding = "quoted­printable";
