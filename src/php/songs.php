@@ -34,7 +34,7 @@ while($row = mysqli_fetch_array($result))
    ?><form method="post" action="songs.php">
      <script>
      var song_name = <?php $_REQUEST[$row["name"]]?>
-     var song_id = <?php $_REQUEST[$row["name"]]?>
+     var song_id = <?php $_REQUEST[$row["song"]]?>
      function add_to_playlist( song_name,song_id ) {
         $song_name = song_name;
         $song_id = song_id;

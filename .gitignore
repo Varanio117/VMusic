@@ -8,6 +8,7 @@ src/php/index.js
 src/php/player.php
 src/music2.sql
 src/php/.env
+src/prueba.php
 /vendor/
 prueba.js
 prueba.php
