@@ -1,17 +1,23 @@
 <?php
 session_start();
 
+require '../../vendor/autoload.php';
 require 'PHPMailer/class.phpmailer.php';
 require 'PHPMailer/class.smtp.php';
+
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
+
+
+$dotenv->load();
 
 $username = "";
 $email    = "";
 $errors = array(); 
 
-define('DB_HOST','localhost');
-define('DB_USER','root');
-define('DB_PASS' ,'');
-define('DB_NAME', 'dbusers');
+define('DB_HOST',$_ENV['DB_HOST']);
+define('DB_USER',$_ENV['DB_USER']);
+define('DB_PASS' ,$_ENV['DB_PASS']);
+define('DB_NAME', $_ENV['DB_NAME']);
 
 $db = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
@@ -55,7 +61,7 @@ if (isset($_POST['reg_user'])) {
   	$query = "INSERT INTO users (username, email, password) VALUES('$username', '$email', '$password')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
-  	$_SESSION['success'] = "Inicio de sesión correcto";
+  	$_SESSION['success'] = "";
   	header('location: index.php');
   }
 }
@@ -78,7 +84,7 @@ if (isset($_POST['login_user'])) {
         $results = mysqli_query($db, $query);
         if (mysqli_num_rows($results) == 1) {
           $_SESSION['username'] = $username;
-          $_SESSION['success'] = "Inicio de sesión correcto";
+          $_SESSION['success'] = "";
           header('location: index.php');
         }else {
             array_push($errors, "Nombre de usuario o contraseña no válidos");
@@ -110,9 +116,9 @@ if (isset($_POST['login_user'])) {
       $mail->Port       = 587;
       $mail->SMTPSecure = 'tls';
       $mail->SMTPAuth   = true;
-      $mail->Username   = "*****@gmail.com";
-      $mail->Password   = "*****";
-      $mail->SetFrom('*****@gmail.com', 'VMusic');
+      $mail->Username   = $_ENV['MAIL_USER'];
+      $mail->Password   = $_ENV['MAIL_PASS'];
+      $mail->SetFrom($_ENV['MAIL_USER'], 'VMusic');
       $mail->AddAddress($email, $username);
       $mail­->CharSet = "UTF-­8";
       $mail­->Encoding = "quoted­printable";
