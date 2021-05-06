@@ -1,7 +1,5 @@
 .vscode/
 .env
-music/
-images/
 NCS/
 src/php/prueba.php
 src/php/index.js

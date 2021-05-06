@@ -31,16 +31,18 @@ while($row = mysqli_fetch_array($result))
    printf("<tr><td> %s</td><td>%s</td><td>%s</td></tr>",$row["name"],$row2["name"],$row3["name"]); 
  
    ?><form method="post" action="songs.php">
+     <?php $song_id=$row["song"];
+      $sql = "INSERT INTO playlist(`song`) VALUES ('$song_id')";?>
      <script>
      var song_name = <?php $row["name"]?>
      var song_id = <?php $row["song"]?>
-     function add_to_playlist( song_name,song_id ) {
+     function add_to_playlist() {
       $song_id=song_id;  
       
      }
      </script>
    
-   <tr><td><button class="btn" type="button" onclick="add_to_playlist( song_id )">Añadir a playlist</button></td><td>
+   <tr><td><button class="btn" type="button" onclick="add_to_playlist()">Añadir a playlist</button></td><td>
      <?php
      
      
