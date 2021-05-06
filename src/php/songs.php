@@ -1,4 +1,3 @@
-  
 <?php  
   
   if (mysqli_connect_errno())
@@ -12,12 +11,12 @@
   $result2= mysqli_query($db, $query2); 
   ?>
   <table>
-  <tr>
+  <tr class=header_tab>
      
     <td>Canción</td>
     <td>Album</td>
     <td>Artista</td>
-   <tr>
+</tr>
 
   <?php
 
@@ -33,23 +32,23 @@ while($row = mysqli_fetch_array($result))
  
    ?><form method="post" action="songs.php">
      <script>
-     var song_name = <?php $_REQUEST[$row["name"]]?>
-     var song_id = <?php $_REQUEST[$row["song"]]?>
+     var song_name = <?php $row["name"]?>
+     var song_id = <?php $row["song"]?>
      function add_to_playlist( song_name,song_id ) {
-        $song_name = song_name;
-        $song_id = song_id;
+      $song_id=song_id;  
+      
      }
      </script>
    
-   <tr><td><button type="button" onclick="add_to_playlist( song_name,song_id )">Añadir a playlist</button></td><td>
+   <tr><td><button class="btn" type="button" onclick="add_to_playlist( song_id )">Añadir a playlist</button></td><td>
      <?php
      
      
   
-}
+    }
 if (isset($_POST['add_to_playlist'])) {
  
-  $sql = "INSERT INTO playlist(`name`, `song`) VALUES ('$song_name', '$song_id')";
+  $sql = "INSERT INTO playlist(`song`) VALUES ('$song_id')";
   header('location: index.php');
  
 } 

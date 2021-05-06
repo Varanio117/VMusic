@@ -49,7 +49,7 @@
 
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p>Bienvenid@ <strong><?php echo $_SESSION['username']; ?></strong></p>
-    	<p> <a href="index.php?logout='1'" style="color: red;">Logout</a>
+    	<p> <a href="index.php?logout='1'" style="color: red;">Cerrar sesión</a>
 			</p>
       <div class="form-group">
               
@@ -59,44 +59,38 @@
 </div>
 
 <ul class="topnav">
-  <li><a href="#" onclick="openTab('playlist')" >Playlist</a></li>
+  <li><a href="#playlist" onclick="openTab('playlist')" >Playlist</a></li>
   <li><a href="#" onclick="openTab('artists')">Artistas</a></li>
   <li><a href="#" onclick="openTab('albums')">Albums</a></li>
   <li><a href="#" onclick="openTab('songs')">Canciones</a></li>
-  <li><div class="search-container">
+  <li><a href="#search"><div class="search-container">
               <form action="/search.php">
-                <input type="text" placeholder="Search.." name="search">
+                <input type="text" placeholder="Buscar" name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
-  </div></li>
+  </div></a></li></ul>
 </header>
 <div class="web-box">
-<div id="playlist" class="topnav tab">
+  <div id="playlist" class="topnav tab">
   
-  <?php include('playlist.php')?> 
+    <?php include('playlist.php')?> 
   
-</div>
-<div id="artists" class="topnav tab">
+  </div>
+  <div id="artists" class="topnav tab">
  
-  <ul id="list">
-  <?php include('artists.php')?> 
-  </ul>
-</div>
+    <?php include('artists.php')?> 
+  </div>
 
-<div id="albums" class="topnav tab">
- 
-  
-  <?php include('albums.php')?> 
- 
-</div>
+  <div id="albums" class="topnav tab">
+    <?php include('albums.php')?> 
+ </div>
 
-<div id="songs" class="topnav tab">
- 
+  <div id="songs" class="topnav tab">
  
     <?php include('songs.php')?>
+  </div>
+</div>
 
-</div>
-</div>
 <footer id="content">
 
 <audio id="player" ontimeupdate="updateProgress()" autoplay>
